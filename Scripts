@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Safe, lab-only scan script for 198.51.100.100
+# WARNING: Run only against systems you own or have permission to test.
+
+TARGET="198.51.100.100"
+OUTDIR="$(dirname "$0")/../scans"
+
+mkdir -p "$OUTDIR"
+
+echo "[*] Ping"
+ping -c 4 "$TARGET" | tee "$OUTDIR/ping_$TARGET.txt"
+
+echo "[*] Nmap top 100 (SYN)"
+sudo nmap -sS -Pn --top-ports 100 -T4 -oN "$OUTDIR/nmap_step3_top100.txt" "$TARGET"
+
+echo "[*] Nmap smb scripts (protocols & smb2 capabilities)"
+sudo nmap -sS -Pn -p 135,139,445 -sV --script=smb-protocols,smb2-capabilities -oN "$OUTDIR/nmap_step8_smb_scripts.txt" "$TARGET"
+
+echo "[*] Nmap smb os discovery & security mode"
+sudo nmap -sS -Pn -p 135,139,445 -sV --script=smb-os-discovery,smb-security-mode -oN "$OUTDIR/nmap_step9_smb_info.txt" "$TARGET"
+
+echo "[*] Enum4linux (all)"
+enum4linux -a "$TARGET" | tee "$OUTDIR/enum4linux_$TARGET.txt"
+
+echo "[*] NetBIOS UDP nbstat"
+sudo nmap -sU -Pn -p 137 --script=nbstat -oN "$OUTDIR/nmap_nbstat_137.txt" "$TARGET"
+
+echo "[*] Done. Review $OUTDIR for outputs"
