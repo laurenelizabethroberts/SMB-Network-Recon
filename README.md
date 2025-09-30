@@ -1,4 +1,4 @@
-# SMB / Network Recon Demo — <TARGET_IP>
+# SMB / Network Recon Demo — 198.51.100.100
 
  
 
