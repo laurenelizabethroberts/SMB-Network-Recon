@@ -1,0 +1,22 @@
+# Findings & Analysis — SMB / Network Recon Demo
+
+## Summary
+- Host (198.51.100.100) is reachable and responded to ICMP with low latency.
+- Nmap top-100 SYN scan revealed open RPC/SMB ports: 135, 139, 445.
+- SMB supports v2/v3 dialects (DFS, leasing, multi-credit operations).
+- Null/anonymous SMB sessions are blocked (NT_STATUS_ACCESS_DENIED / NT_STATUS_LOGON_FAILURE).
+- NetBIOS name service (UDP 137) did not reliably respond (open|filtered).
+
+## Risk assessment
+- Exposure: SMB/RPC reachable — monitor for suspicious SMB activity and ensure EDR/IDS are configured to inspect SMB traffic.
+- Likelihood: moderate (internal/lab host).
+- Impact: depends on share permissions and patch level; authenticated enumeration required to determine sensitive shares.
+
+## Remediation recommendations
+1. Enforce SMB signing and, if possible, SMB encryption for sensitive hosts.
+2. Confirm Windows patch level and apply relevant security updates.
+3. Review share permissions and remove unnecessary public shares.
+4. Limit network access to RPC/SMB services via firewall/host-based rules if not needed.
+
+## Evidence
+- See `scans/` for raw outputs.
