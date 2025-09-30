@@ -1,0 +1,10 @@
+### SANITIZED SCAN OUTPUT
+### Original IPs, timestamps and other environment-specific data have been replaced
+### with documentation-safe placeholders for public sharing.
+
+### Nmap scan output (sanitized)
+Nmap scan report for 198.51.100.100
+Host is up.
+
+PORT    STATE         SERVICE
+137/udp open|filtered netbios-ns
