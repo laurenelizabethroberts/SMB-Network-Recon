@@ -1,0 +1,20 @@
+### SANITIZED SCAN OUTPUT
+### Original IPs, timestamps and other environment-specific data have been replaced
+### with documentation-safe placeholders for public sharing.
+
+# Nmap scan targeting 445
+# Nmap 7.95 scan initiated as: nmap -sS -Pn -p 445 -sV --script=smb-os-discovery,smb-enum-shares,smb-protocols 198.51.100.100
+Nmap scan report for 198.51.100.100
+Host is up..
+
+PORT    STATE SERVICE       VERSION
+445/tcp open  microsoft-ds?
+
+Host script results:
+| smb-protocols:
+|   dialects:
+|     2:0:2
+|     2:1:0
+|     3:0:0
+|     3:0:2
+|_    3:1:1
