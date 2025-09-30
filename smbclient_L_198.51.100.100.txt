@@ -1,0 +1,5 @@
+### SANITIZED SCAN OUTPUT
+### Original IPs, timestamps and other environment-specific data have been replaced
+### with documentation-safe placeholders for public sharing.
+
+session setup failed: NT_STATUS_ACCESS_DENIED
