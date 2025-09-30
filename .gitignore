@@ -1,0 +1,4 @@
+# Ignore scans containing potentially sensitive output
+
+/scans/*
+!scans/README.md
