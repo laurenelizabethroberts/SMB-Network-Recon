@@ -1,4 +1,5 @@
 # SMB / Network Recon Demo — 198.51.100.100
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
  
 
