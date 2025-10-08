@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE nmaprun>
+<nmaprun scanner="nmap" args="nmap -p 139,445 -sT -Pn -oX smb_recon_example.xml 10.0.0.10 10.0.0.20">
+  <host>
+    <status state="up"/>
+    <address addr="10.0.0.10" addrtype="ipv4"/>
+    <hostnames><hostname name="winfilesrv01"/></hostnames>
+    <ports>
+      <port protocol="tcp" portid="139"><state state="open"/><service name="netbios-ssn"/></port>
+      <port protocol="tcp" portid="445"><state state="open"/><service name="microsoft-ds"/></port>
+    </ports>
+    <hostscript>
+      <script id="smb-os-discovery" output="Windows Server 2019 Standard 17763 (workgroup: WORKGROUP)"/>
+      <script id="smb2-security-mode" output="2.10: Signing: required"/>
+      <script id="smb-enum-shares" output="IPC$;ADMIN$;Public (read)"/>
+    </hostscript>
+  </host>
+  <host>
+    <status state="up"/>
+    <address addr="10.0.0.20" addrtype="ipv4"/>
+    <hostnames><hostname name="lab-win10"/></hostnames>
+    <ports>
+      <port protocol="tcp" portid="139"><state state="open"/><service name="netbios-ssn"/></port>
+      <port protocol="tcp" portid="445"><state state="open"/><service name="microsoft-ds"/></port>
+    </ports>
+    <hostscript>
+      <script id="smb-os-discovery" output="Windows 10 Pro 19045 (workgroup: WORKGROUP)"/>
+      <script id="smb2-security-mode" output="3.1.1: Signing: disabled (not required)"/>
+      <script id="smb-enum-shares" output="IPC$;C$;Users (read/write)"/>
+    </hostscript>
+  </host>
+</nmaprun>
