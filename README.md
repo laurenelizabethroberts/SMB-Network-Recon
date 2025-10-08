@@ -25,9 +25,9 @@ Demonstrate safe, methodical network reconnaissance and SMB enumeration used in 
 
 - `scripts/` — optional small scripts used to run scans 
 
-- `README.md` — this document 
+- `README.md` — this document
 
- 
+
 
 --- 
 
@@ -43,8 +43,20 @@ Demonstrate safe, methodical network reconnaissance and SMB enumeration used in 
 
  
 
---- 
+---
 
+
+
+## SMB Recon Data
+- `data/scans/smb_recon_example.xml` — **simulated** Nmap XML output for two hosts (demo only).
+- `src/smb_report.py` — parses Nmap hostscript fields (`smb-os-discovery`, `smb2-security-mode`, `smb-enum-shares`) into a summary CSV.
+- `docs/SMB_Recon_Report.csv` — generated report (host, OS, SMB signing status, shares).
+
+> ⚠️ Ethical use: run real scans only on systems you own or have explicit permission to test.
+
+
+
+---
  
 
 ## Methodology (concise) 
