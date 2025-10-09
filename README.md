@@ -2,6 +2,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![CI](https://github.com/laurenelizabethroberts/SMB-Network-Recon/actions/workflows/python-ci.yml/badge.svg)
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Nmap-SMB%20Recon-informational" alt="Nmap SMB Recon">
+  <img src="https://img.shields.io/badge/Python-3.11-success" alt="Python 3.11">
+  <img src="https://img.shields.io/badge/Shell-Scripts-lightgrey" alt="Shell">
+  <a href="#license"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
+</p>
+
+
 
  
 
