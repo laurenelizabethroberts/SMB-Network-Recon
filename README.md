@@ -42,6 +42,24 @@ Demonstrate safe, methodical network reconnaissance and SMB enumeration used in 
 - `nmblookup` / `nbstat` (NetBIOS name lookups)   
 
  
+---
+
+
+## How to run (demo data)
+
+1) Ensure Python 3.11+ is available.
+
+2) Use the included demo XML:
+python src/smb_report.py data/scans/smb_recon_example.xml > analysis/SMB_Recon_Report.csv
+
+2) If your script supports flags, you can also do:
+python src/smb_report.py -i data/scans/smb_recon_example.xml -o analysis/SMB_Recon_Report.csv
+
+3) Review outputs:
+- `analysis/SMB_Recon_Report.csv` — consolidated host/OS/SMB signing/shares
+- `analysis/findings.md` — analyst interpretation & recommendations
+
+
 
 ---
 
