@@ -1,9 +1,21 @@
-import subprocess, sys, os
+import subprocess
+import sys
+from pathlib import Path
 
 def test_cli_help_runs():
-    # Ensure we can call the script and it returns help/usage without error
-    cmd = [sys.executable, "src/smb_report.py", "-h"]
-    proc = subprocess.run(cmd, capture_output=True, text=True)
-    # Accept 0 (OK) or 2 (argparse shows help with error code when no args)
-    assert proc.returncode in (0, 2)
-    assert "help" in (proc.stdout + proc.stderr).lower()
+    # Resolve repo root so the test works no matter where pytest is called from
+    repo_root = Path(__file__).resolve().parents[1]
+    script = repo_root / "src" / "smb_report.py"
+
+    assert script.exists(), f"Missing script: {script}"
+
+    proc = subprocess.run(
+        [sys.executable, str(script), "-h"],
+        capture_output=True,
+        text=True
+    )
+
+    # With -h, argparse should exit 0 and print a usage header
+    assert proc.returncode == 0
+    out = (proc.stdout + proc.stderr).lower()
+    assert "usage:" in out or "optional arguments" in out or "options:" in out
